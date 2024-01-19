@@ -1,0 +1,79 @@
+﻿ 
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="https://demos.telerik.com/kendo-ui/grid/basic-usage">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link href="https://kendo.cdn.telerik.com/themes/7.0.2/default/default-main.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    
+    <script src="https://kendo.cdn.telerik.com/2023.3.1114/js/kendo.all.min.js"></script>
+    
+    
+</head>
+<body>
+
+   <div id="example">
+      <div id="grid"></div>
+      <script>
+        $(document).ready(function () {
+            $("#grid").kendoGrid({
+                dataSource: {
+                    type: "odata",
+                    transport: {
+                       read: "https://localhost:7192/api/Empleados"
+                    },
+                    pageSize: 20
+                },
+                height: 550,
+                groupable: true,
+                sortable: true,
+                pageable: {
+                    refresh: true,
+                    pageSizes: true,
+                    buttonCount: 5
+                },
+               columns: [
+                  {
+                    field: "Id",
+                    title: "Id"
+                }, {
+                    field: "Fotografia",
+                    title: "Foto"
+                }, {
+                    field: "Nombre"
+                  }
+                  , {
+                     field: "Appellido"
+                  }
+                  , {
+                     field: "PuestoId"
+                  }
+                  , {
+                     field: "FechaNacimiento"
+                  }, {
+                     field: "FechaContratacion"
+                  }
+                  , {
+                     field: "Direccion"
+                  }
+                  , {
+                     field: "Telefono"
+                  }, {
+                     field: "CorreoElectronico"
+                  }, {
+                     field: "EstadoId"
+                  }
+               ]
+            });
+        });
+      </script>
+   </div>
+
+ 
+
+
+
+</body>
+</html>
